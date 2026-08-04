@@ -1,233 +1,232 @@
-{
-  "name": "Mwangi K",
-  "title": "AI Adoption and Solutions Professional - Kenya & East Africa",
+﻿{
+    "name":  "Mwangi K",
+    "title":  "AI Adoption and Solutions Professional - Kenya \u0026 East Africa",
+    "profile":  {
+                    "summary":  "AI adoption and solutions professional with cross-cutting expertise across government, healthcare and technology in the public, private and NGO sectors."
+                },
+    "experience":  [
+                       {
+                           "period":  "2025 - Present",
+                           "organization":  "State Department for Housing and Urban Development (SDHUD)",
+                           "role":  "Strategic Program Support Officer",
+                           "responsibilities":  [
+                                                    "Drives the adoption and use of Agentic AI for workflow modernization across national policy and programs.",
+                                                    "Supports modernization of MERL workflows enabling real-time insightful reports and media for varied audiences."
+                                                ],
+                           "projects":  [
+                                            "AI-driven program project cards reducing data, media compilation and reporting timelines.",
+                                            "AI-driven dashboards for housing demand and supply chain monitoring.",
+                                            "AI-driven construction Project Information Management Systems (PIMS) for Android mobile and web, scaled to three counties."
+                                        ],
+                           "technologies":  [
+                                                "Agentic AI",
+                                                "FastAPI",
+                                                "Android",
+                                                "AWS",
+                                                "GCP",
+                                                "Power BI"
+                                            ]
+                       },
+                       {
+                           "period":  "2024",
+                           "organization":  "E-Tiba East Africa Consortium",
+                           "role":  "Digital Health - AI Strategy and Operations",
+                           "responsibilities":  [
+                                                    "Supported regional teams with research and field operations for health systems strengthening programs to reduce out-of-pocket healthcare expenditure in Sub-Saharan Africa.",
+                                                    "Coordinated cross-functionally in solution co-development and workflow customization across manufacturing, pharmaceutical and healthcare delivery."
+                                                ]
+                       },
+                       {
+                           "period":  "2023",
+                           "organization":  "Adanian Labs / AfyaRekod / AICE",
+                           "role":  "Patient-Centric Solutions Engineer - Health Systems",
+                           "responsibilities":  [
+                                                    "Led on-premise design and implementation of AI-driven digital health passports.",
+                                                    "Led pilots through launch for integrated hospital management information systems.",
+                                                    "Worked on AI-driven dynamic EHRs and clinical and financial data collection, analysis and reporting tools.",
+                                                    "Led end-to-end digital health transitioning programs across 50+ multi-level healthcare organizations in rural Kenya."
+                                                ],
+                           "technologies":  [
+                                                "AI",
+                                                "Machine Learning",
+                                                "Blockchain",
+                                                "AWS",
+                                                "SaaS",
+                                                "Android",
+                                                "Web",
+                                                "USSD"
+                                            ]
+                       },
+                       {
+                           "period":  "2018 - 2019",
+                           "organization":  "Andela - Nairobi - I-Lab",
+                           "role":  "Cloud and Software Engineer",
+                           "responsibilities":  [
+                                                    "Completed technical training and learning in cloud and software engineering.",
+                                                    "Participated in agile development of POLITICO, an Android mobile and web voting platform."
+                                                ]
+                       },
+                       {
+                           "period":  "2014 - 2016",
+                           "organization":  "VAS Management Consultants",
+                           "role":  "Management Consultant",
+                           "responsibilities":  [
+                                                    "Conducted research and advisory across tax, housing, agriculture, banking and public service industries in the public, private and NGO sectors."
+                                                ]
+                       }
+                   ],
+    "projects":  [
+                     {
+                         "name":  "NMR Project Information Management System",
+                         "type":  "AI-enabled PIMS",
+                         "technologies":  [
+                                              "Agentic AI",
+                                              "FastAPI",
+                                              "AWS",
+                                              "GCP",
+                                              "Android"
+                                          ],
+                         "github":  "",
+                         "dashboard":  "",
+                         "live_demo":  ""
+                     },
+                     {
+                         "name":  "Housing Demand and Supply Chain Dashboards",
+                         "type":  "Analytics and Decision Support",
+                         "technologies":  [
+                                              "Power BI",
+                                              "AI",
+                                              "AWS",
+                                              "GCP"
+                                          ],
+                         "github":  "",
+                         "dashboard":  "",
+                         "live_demo":  ""
+                     },
+                     {
+                         "name":  "Digital Health Passports",
+                         "type":  "Digital Health",
+                         "technologies":  [
+                                              "AI",
+                                              "Machine Learning",
+                                              "Blockchain",
+                                              "AWS"
+                                          ],
+                         "github":  "",
+                         "presentation":  "",
+                         "live_demo":  ""
+                     },
+                     {
+                         "name":  "Integrated Hospital Management Information System",
+                         "type":  "Digital Health",
+                         "github":  "",
+                         "presentation":  "",
+                         "live_demo":  ""
+                     },
+                     {
+                         "name":  "Dynamic EHR",
+                         "type":  "Digital Health",
+                         "github":  "",
+                         "presentation":  "",
+                         "live_demo":  ""
+                     },
+                     {
+                         "name":  "POLITICO",
+                         "type":  "Android and Web Application",
+                         "github":  "",
+                         "live_demo":  ""
+                     }
+                 ],
+    "education":  [
+                      {
+                          "qualification":  "Bachelor of Commerce - Finance (Hons)",
+                          "institution":  "University of Nairobi",
+                          "year":  "2013"
+                      }
+                  ],
+    "certifications":  [
+                           {
+                               "year":  "2025",
+                               "name":  "AWS CloudFormation, Containers, IAM, Networking, Practitioner and Prompt Engineering",
+                               "organization":  "AWS"
+                           },
+                           {
+                               "year":  "2024",
+                               "name":  "Ethics and Governance of Artificial Intelligence for Health",
+                               "organization":  "World Health Organization"
+                           },
+                           {
+                               "year":  "2024",
+                               "name":  "Incident Management System Tier 1",
+                               "organization":  "World Health Organization"
+                           },
+                           {
+                               "year":  "2022",
+                               "name":  "Financial Modeling and Valuation Analyst (FMVA)",
+                               "organization":  "CFI"
+                           }
+                       ],
+    "skills":  {
+                   "ai":  [
+                              "Agentic AI",
+                              "Artificial Intelligence",
+                              "Machine Learning",
+                              "Prompt Engineering",
+                              "Blockchain"
+                          ],
+                   "data":  [
+                                "Power BI",
+                                "Power Query",
+                                "Tableau",
+                                "Excel",
+                                "Python",
+                                "SQL",
+                                "NoSQL",
+                                "SPSS",
+                                "STATA"
+                            ],
+                   "software":  [
+                                    "FastAPI",
+                                    "Java",
+                                    "Kotlin",
+                                    "JavaScript",
+                                    "React",
+                                    "HTML5",
+                                    "CSS3",
+                                    "REST APIs",
+                                    "GitHub"
+                                ],
+                   "cloud":  [
+                                 "AWS",
+                                 "GCP"
+                             ],
+                   "digital_health":  [
+                                          "DHIS2",
+                                          "EHR",
+                                          "EMR",
+                                          "HMIS",
+                                          "HL7",
+                                          "FHIR",
+                                          "LOINC",
+                                          "ICD-11"
+                                      ]
+               },
+    "resources":  {
+                      "github":  "",
+                      "power_bi":  [
 
-  "profile": {
-    "summary": "AI adoption and solutions professional with cross-cutting expertise across government, healthcare and technology in the public, private and NGO sectors."
-  },
+                                   ],
+                      "aws":  [
 
-  "experience": [
-    {
-      "period": "2025 - Present",
-      "organization": "State Department for Housing and Urban Development (SDHUD)",
-      "role": "Strategic Program Support Officer",
-      "responsibilities": [
-        "Drives the adoption and use of Agentic AI for workflow modernization across national policy and programs.",
-        "Supports modernization of MERL workflows enabling real-time insightful reports and media for varied audiences."
-      ],
-      "projects": [
-        "AI-driven program project cards reducing data, media compilation and reporting timelines.",
-        "AI-driven dashboards for housing demand and supply chain monitoring.",
-        "AI-driven construction Project Information Management Systems (PIMS) for Android mobile and web, scaled to three counties."
-      ],
-      "technologies": [
-        "Agentic AI",
-        "FastAPI",
-        "Android",
-        "AWS",
-        "GCP",
-        "Power BI"
-      ]
-    },
+                              ],
+                      "gcp":  [
 
-    {
-      "period": "2024",
-      "organization": "E-Tiba East Africa Consortium",
-      "role": "Digital Health - AI Strategy and Operations",
-      "responsibilities": [
-        "Supported regional teams with research and field operations for health systems strengthening programs to reduce out-of-pocket healthcare expenditure in Sub-Saharan Africa.",
-        "Coordinated cross-functionally in solution co-development and workflow customization across manufacturing, pharmaceutical and healthcare delivery."
-      ]
-    },
+                              ],
+                      "presentations":  [
 
-    {
-      "period": "2023",
-      "organization": "Adanian Labs / AfyaRekod / AICE",
-      "role": "Patient-Centric Solutions Engineer - Health Systems",
-      "responsibilities": [
-        "Led on-premise design and implementation of AI-driven digital health passports.",
-        "Led pilots through launch for integrated hospital management information systems.",
-        "Worked on AI-driven dynamic EHRs and clinical and financial data collection, analysis and reporting tools.",
-        "Led end-to-end digital health transitioning programs across 50+ multi-level healthcare organizations in rural Kenya."
-      ],
-      "technologies": [
-        "AI",
-        "Machine Learning",
-        "Blockchain",
-        "AWS",
-        "SaaS",
-        "Android",
-        "Web",
-        "USSD"
-      ]
-    },
+                                        ],
+                      "live_projects":  [
 
-    {
-      "period": "2018 - 2019",
-      "organization": "Andela - Nairobi - I-Lab",
-      "role": "Cloud and Software Engineer",
-      "responsibilities": [
-        "Completed technical training and learning in cloud and software engineering.",
-        "Participated in agile development of POLITICO, an Android mobile and web voting platform."
-      ]
-    },
-
-    {
-      "period": "2014 - 2016",
-      "organization": "VAS Management Consultants",
-      "role": "Management Consultant",
-      "responsibilities": [
-        "Conducted research and advisory across tax, housing, agriculture, banking and public service industries in the public, private and NGO sectors."
-      ]
-    }
-  ],
-
-  "projects": [
-    {
-      "name": "NMR Project Information Management System",
-      "type": "AI-enabled PIMS",
-      "technologies": [
-        "Agentic AI",
-        "FastAPI",
-        "AWS",
-        "GCP",
-        "Android"
-      ],
-      "github": "",
-      "dashboard": "",
-      "live_demo": ""
-    },
-    {
-      "name": "Housing Demand and Supply Chain Dashboards",
-      "type": "Analytics and Decision Support",
-      "technologies": [
-        "Power BI",
-        "AI",
-        "AWS",
-        "GCP"
-      ],
-      "github": "",
-      "dashboard": "",
-      "live_demo": ""
-    },
-    {
-      "name": "Digital Health Passports",
-      "type": "Digital Health",
-      "technologies": [
-        "AI",
-        "Machine Learning",
-        "Blockchain",
-        "AWS"
-      ],
-      "github": "",
-      "presentation": "",
-      "live_demo": ""
-    },
-    {
-      "name": "Integrated Hospital Management Information System",
-      "type": "Digital Health",
-      "github": "",
-      "presentation": "",
-      "live_demo": ""
-    },
-    {
-      "name": "Dynamic EHR",
-      "type": "Digital Health",
-      "github": "",
-      "presentation": "",
-      "live_demo": ""
-    },
-    {
-      "name": "POLITICO",
-      "type": "Android and Web Application",
-      "github": "",
-      "live_demo": ""
-    }
-  ],
-
-  "education": [
-    {
-      "qualification": "Bachelor of Commerce - Finance (Hons)",
-      "institution": "University of Nairobi",
-      "year": "2013"
-    }
-  ],
-
-  "certifications": [
-    {
-      "year": "2025",
-      "name": "AWS CloudFormation, Containers, IAM, Networking, Practitioner and Prompt Engineering",
-      "organization": "AWS"
-    },
-    {
-      "year": "2024",
-      "name": "Ethics and Governance of Artificial Intelligence for Health",
-      "organization": "World Health Organization"
-    },
-    {
-      "year": "2024",
-      "name": "Incident Management System Tier 1",
-      "organization": "World Health Organization"
-    },
-    {
-      "year": "2022",
-      "name": "Financial Modeling and Valuation Analyst (FMVA)",
-      "organization": "CFI"
-    }
-  ],
-
-  "skills": {
-    "ai": [
-      "Agentic AI",
-      "Artificial Intelligence",
-      "Machine Learning",
-      "Prompt Engineering",
-      "Blockchain"
-    ],
-    "data": [
-      "Power BI",
-      "Power Query",
-      "Tableau",
-      "Excel",
-      "Python",
-      "SQL",
-      "NoSQL",
-      "SPSS",
-      "STATA"
-    ],
-    "software": [
-      "FastAPI",
-      "Java",
-      "Kotlin",
-      "JavaScript",
-      "React",
-      "HTML5",
-      "CSS3",
-      "REST APIs",
-      "GitHub"
-    ],
-    "cloud": [
-      "AWS",
-      "GCP"
-    ],
-    "digital_health": [
-      "DHIS2",
-      "EHR",
-      "EMR",
-      "HMIS",
-      "HL7",
-      "FHIR",
-      "LOINC",
-      "ICD-11"
-    ]
-  },
-
-  "resources": {
-    "github": "",
-    "power_bi": [],
-    "aws": [],
-    "gcp": [],
-    "presentations": [],
-    "live_projects": []
-  }
+                                        ]
+                  }
 }

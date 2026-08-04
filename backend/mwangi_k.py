@@ -1,4 +1,6 @@
 from fastapi import APIRouter
+import json
+from pathlib import Path
 
 
 # ==========================================
@@ -9,10 +11,36 @@ router = APIRouter()
 
 
 # ==========================================
-# MWANGI K CV OBJECT
+# MWANGI K JSON FILE
 # ==========================================
 
-mwangi_k = {}
+JSON_FILE = Path(__file__).resolve().parent.parent / "mwangi-k.json"
+
+
+# ==========================================
+# LOAD MWANGI K
+# ==========================================
+
+def load_mwangi_k():
+    with open(JSON_FILE, "r", encoding="utf-8") as file:
+        return json.load(file)
+
+
+mwangi_k = load_mwangi_k()
+
+
+# ==========================================
+# SAVE MWANGI K
+# ==========================================
+
+def save_mwangi_k():
+    with open(JSON_FILE, "w", encoding="utf-8") as file:
+        json.dump(
+            mwangi_k,
+            file,
+            indent=4,
+            ensure_ascii=False
+        )
 
 
 # ==========================================
@@ -34,6 +62,8 @@ def post_mwangi_k(data: dict):
     mwangi_k.clear()
     mwangi_k.update(data)
 
+    save_mwangi_k()
+
     return {
         "message": "Mwangi K posted",
         "mwangi_k": mwangi_k
@@ -49,6 +79,8 @@ def put_mwangi_k(data: dict):
 
     mwangi_k.update(data)
 
+    save_mwangi_k()
+
     return {
         "message": "Mwangi K updated",
         "mwangi_k": mwangi_k
@@ -63,6 +95,8 @@ def put_mwangi_k(data: dict):
 def delete_mwangi_k():
 
     mwangi_k.clear()
+
+    save_mwangi_k()
 
     return {
         "message": "Mwangi K deleted"
