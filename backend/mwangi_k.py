@@ -22,7 +22,7 @@ JSON_FILE = Path(__file__).resolve().parent.parent / "mwangi-k.json"
 # ==========================================
 
 def load_mwangi_k():
-    with open(JSON_FILE, "r", encoding="utf-8") as file:
+    with open(JSON_FILE, "r", encoding="utf-8-sig") as file:
         return json.load(file)
 
 
