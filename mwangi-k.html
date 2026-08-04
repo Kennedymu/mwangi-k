@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mwangi K | CV</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #e5e7eb;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #1f2937;
+        }
+
+        /* ONE CONTINUOUS CV PAGE */
+
+        .cv-page {
+            max-width: 1000px;
+            margin: 30px auto;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.10);
+        }
+
+        /* HEADER */
+
+        .cv-header {
+            background: #111827;
+            color: white;
+            padding: 45px 55px;
+        }
+
+        .cv-header h1 {
+            margin: 0;
+            font-size: 42px;
+        }
+
+        .cv-header p {
+            margin: 8px 0 0;
+            font-size: 19px;
+            color: #d1d5db;
+        }
+
+        /* CONTENT */
+
+        .cv-content {
+            padding: 35px 55px 60px;
+        }
+
+        /* SECTION */
+
+        .cv-section {
+            padding: 25px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .cv-section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 21px;
+            text-transform: uppercase;
+            letter-spacing: .7px;
+        }
+
+        h3 {
+            margin: 0 0 5px;
+            font-size: 18px;
+        }
+
+        p {
+            line-height: 1.65;
+        }
+
+        ul {
+            line-height: 1.65;
+        }
+
+        /* EXPERIENCE */
+
+        .item {
+            margin-bottom: 25px;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+        }
+
+        .role {
+            font-weight: bold;
+            color: #374151;
+        }
+
+        .period {
+            font-size: 14px;
+            color: #6b7280;
+            margin-top: 3px;
+        }
+
+        /* TAGS */
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            padding: 5px 9px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+
+        /* BUTTONS */
+
+        .buttons {
+            display: flex;
+            gap: 7px;
+        }
+
+        button {
+            border: none;
+            border-radius: 5px;
+            padding: 7px 13px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .edit-button {
+            background: #e5e7eb;
+        }
+
+        .save-button {
+            background: #111827;
+            color: white;
+            display: none;
+        }
+
+        .cancel-button {
+            background: #f3f4f6;
+            display: none;
+        }
+
+        /* EDITOR */
+
+        .editor {
+            display: none;
+            width: 100%;
+            min-height: 180px;
+            margin-top: 15px;
+            padding: 15px;
+
+            border: 1px solid #9ca3af;
+            border-radius: 5px;
+
+            font-family: Consolas, monospace;
+            font-size: 14px;
+            line-height: 1.5;
+
+            resize: vertical;
+        }
+
+        /* STATUS */
+
+        #status {
+            display: none;
+            position: fixed;
+            right: 25px;
+            top: 25px;
+
+            padding: 12px 18px;
+            border-radius: 6px;
+
+            background: #dcfce7;
+            border: 1px solid #86efac;
+
+            z-index: 1000;
+        }
+
+        @media(max-width:700px) {
+
+            .cv-page {
+                margin: 0;
+            }
+
+            .cv-header,
+            .cv-content {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            .section-header {
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+<div id="status"></div>
+
+<div class="cv-page">
+
+    <header class="cv-header">
+
+        <h1 id="header-name">
+            Loading...
+        </h1>
+
+        <p id="header-title"></p>
+
+    </header>
+
+
+    <main
+        id="cv-content"
+        class="cv-content">
+    </main>
+
+</div>
+
+
+<script>
+
+const API =
+    "http://127.0.0.1:8080/cv";
+
+let mwangi_k = {};
+
+
+/* =====================================
+   GET MWANGI K
+===================================== */
+
+async function getMwangiK() {
+
+    try {
+
+        const response =
+            await fetch(API);
+
+        if (!response.ok)
+            throw new Error();
+
+        mwangi_k =
+            await response.json();
+
+        renderCV();
+
+    }
+
+    catch {
+
+        showStatus(
+            "Unable to connect to API",
+            true
+        );
+    }
+}
+
+
+/* =====================================
+   RENDER COMPLETE CV
+===================================== */
+
+function renderCV() {
+
+    document.getElementById(
+        "header-name"
+    ).textContent =
+        mwangi_k.name || "";
+
+
+    document.getElementById(
+        "header-title"
+    ).textContent =
+        mwangi_k.title || "";
+
+
+    const container =
+        document.getElementById(
+            "cv-content"
+        );
+
+    container.innerHTML = "";
+
+
+    Object.entries(mwangi_k)
+        .forEach(([key, value]) => {
+
+            /*
+            Name and title already appear
+            in the CV header.
+            */
+
+            if (
+                key === "name" ||
+                key === "title"
+            ) {
+                return;
+            }
+
+            createSection(
+                container,
+                key,
+                value
+            );
+
+        });
+}
+
+
+/* =====================================
+   CREATE SECTION
+===================================== */
+
+function createSection(
+    container,
+    key,
+    value
+) {
+
+    const section =
+        document.createElement("section");
+
+    section.className =
+        "cv-section";
+
+
+    section.innerHTML = `
+
+        <div class="section-header">
+
+            <h2>
+                ${formatHeading(key)}
+            </h2>
+
+            <div class="buttons">
+
+                <button
+                    class="edit-button"
+                    onclick="editSection('${key}')">
+
+                    Edit
+
+                </button>
+
+                <button
+                    id="${key}-save"
+                    class="save-button"
+                    onclick="saveSection('${key}')">
+
+                    Save
+
+                </button>
+
+                <button
+                    id="${key}-cancel"
+                    class="cancel-button"
+                    onclick="cancelEdit('${key}')">
+
+                    Cancel
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div
+            id="${key}-display"
+            class="display">
+        </div>
+
+        <textarea
+            id="${key}-editor"
+            class="editor">
+        </textarea>
+    `;
+
+
+    container.appendChild(section);
+
+
+    renderSectionValue(
+        key,
+        value
+    );
+}
+
+
+/* =====================================
+   DISPLAY SECTION
+===================================== */
+
+function renderSectionValue(
+    key,
+    value
+) {
+
+    const display =
+        document.getElementById(
+            key + "-display"
+        );
+
+
+    if (!display)
+        return;
+
+
+    /* PROFILE */
+
+    if (key === "profile") {
+
+        display.innerHTML =
+            `<p>${value.summary || ""}</p>`;
+
+        return;
+    }
+
+
+    /* EXPERIENCE */
+
+    if (key === "experience") {
+
+        display.innerHTML =
+            value.map(item => `
+
+                <div class="item">
+
+                    <h3>
+                        ${item.organization || ""}
+                    </h3>
+
+                    <div class="role">
+                        ${item.role || ""}
+                    </div>
+
+                    <div class="period">
+                        ${item.period || ""}
+                    </div>
+
+                    ${createList(
+                        item.responsibilities
+                    )}
+
+                    ${
+                        item.projects
+                        ? `
+                        <strong>
+                            Key Projects
+                        </strong>
+
+                        ${createList(
+                            item.projects
+                        )}
+                        `
+                        : ""
+                    }
+
+                    ${createTags(
+                        item.technologies
+                    )}
+
+                </div>
+
+            `).join("");
+
+        return;
+    }
+
+
+    /* PROJECTS */
+
+    if (key === "projects") {
+
+        display.innerHTML =
+            value.map(item => `
+
+                <div class="item">
+
+                    <h3>
+                        ${item.name || ""}
+                    </h3>
+
+                    <div class="role">
+                        ${item.type || ""}
+                    </div>
+
+                    ${createTags(
+                        item.technologies
+                    )}
+
+                </div>
+
+            `).join("");
+
+        return;
+    }
+
+
+    /* EDUCATION */
+
+    if (key === "education") {
+
+        display.innerHTML =
+            value.map(item => `
+
+                <div class="item">
+
+                    <h3>
+                        ${item.qualification || ""}
+                    </h3>
+
+                    <div>
+                        ${item.institution || ""}
+                    </div>
+
+                    <div class="period">
+                        ${item.year || ""}
+                    </div>
+
+                </div>
+
+            `).join("");
+
+        return;
+    }
+
+
+    /* CERTIFICATIONS */
+
+    if (key === "certifications") {
+
+        display.innerHTML =
+            value.map(item => `
+
+                <div class="item">
+
+                    <strong>
+                        ${item.name || ""}
+                    </strong>
+
+                    <div>
+                        ${item.organization || ""}
+                    </div>
+
+                    <div class="period">
+                        ${item.year || ""}
+                    </div>
+
+                </div>
+
+            `).join("");
+
+        return;
+    }
+
+
+    /* SKILLS */
+
+    if (key === "skills") {
+
+        display.innerHTML =
+            Object.entries(value)
+                .map(([group, skills]) => `
+
+                    <div class="item">
+
+                        <h3>
+                            ${formatHeading(group)}
+                        </h3>
+
+                        ${createTags(skills)}
+
+                    </div>
+
+                `).join("");
+
+        return;
+    }
+
+
+    /* EVERYTHING ELSE */
+
+    display.innerHTML = `
+
+        <pre>
+${JSON.stringify(value, null, 2)}
+        </pre>
+    `;
+}
+
+
+/* =====================================
+   EDIT SECTION
+===================================== */
+
+function editSection(key) {
+
+    const editor =
+        document.getElementById(
+            key + "-editor"
+        );
+
+
+    editor.value =
+        JSON.stringify(
+            mwangi_k[key],
+            null,
+            2
+        );
+
+
+    editor.style.display =
+        "block";
+
+
+    document.getElementById(
+        key + "-display"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        key + "-save"
+    ).style.display =
+        "inline-block";
+
+
+    document.getElementById(
+        key + "-cancel"
+    ).style.display =
+        "inline-block";
+
+
+    editor.focus();
+}
+
+
+/* =====================================
+   SAVE SECTION
+===================================== */
+
+async function saveSection(key) {
+
+    const editor =
+        document.getElementById(
+            key + "-editor"
+        );
+
+
+    let newValue;
+
+
+    try {
+
+        newValue =
+            JSON.parse(
+                editor.value
+            );
+
+    }
+
+    catch {
+
+        alert(
+            "Please enter valid JSON."
+        );
+
+        return;
+    }
+
+
+    const update = {};
+
+    update[key] =
+        newValue;
+
+
+    try {
+
+        const response =
+            await fetch(
+                API,
+                {
+                    method: "PUT",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify(
+                            update
+                        )
+                }
+            );
+
+
+        if (!response.ok)
+            throw new Error();
+
+
+        mwangi_k[key] =
+            newValue;
+
+
+        renderSectionValue(
+            key,
+            newValue
+        );
+
+
+        closeEditor(key);
+
+
+        showStatus(
+            formatHeading(key) +
+            " saved"
+        );
+
+    }
+
+    catch {
+
+        showStatus(
+            "Save failed",
+            true
+        );
+    }
+}
+
+
+/* =====================================
+   CANCEL
+===================================== */
+
+function cancelEdit(key) {
+
+    closeEditor(key);
+}
+
+
+function closeEditor(key) {
+
+    document.getElementById(
+        key + "-editor"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        key + "-display"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        key + "-save"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        key + "-cancel"
+    ).style.display =
+        "none";
+}
+
+
+/* =====================================
+   LIST
+===================================== */
+
+function createList(items) {
+
+    if (!items)
+        return "";
+
+
+    return `
+
+        <ul>
+
+            ${items.map(
+                item =>
+                    `<li>${item}</li>`
+            ).join("")}
+
+        </ul>
+    `;
+}
+
+
+/* =====================================
+   TAGS
+===================================== */
+
+function createTags(items) {
+
+    if (!items)
+        return "";
+
+
+    return `
+
+        <div class="tags">
+
+            ${items.map(
+                item =>
+                    `<span class="tag">
+                        ${item}
+                    </span>`
+            ).join("")}
+
+        </div>
+    `;
+}
+
+
+/* =====================================
+   HEADING
+===================================== */
+
+function formatHeading(text) {
+
+    return text
+
+        .replaceAll("_", " ")
+
+        .replace(
+            /\b\w/g,
+            letter =>
+                letter.toUpperCase()
+        );
+}
+
+
+/* =====================================
+   STATUS
+===================================== */
+
+function showStatus(
+    message,
+    error = false
+) {
+
+    const status =
+        document.getElementById(
+            "status"
+        );
+
+
+    status.textContent =
+        message;
+
+
+    status.style.background =
+        error
+        ? "#fee2e2"
+        : "#dcfce7";
+
+
+    status.style.display =
+        "block";
+
+
+    setTimeout(() => {
+
+        status.style.display =
+            "none";
+
+    }, 2500);
+}
+
+
+/* =====================================
+   START
+===================================== */
+
+getMwangiK();
+
+</script>
+
+</body>
+</html>
