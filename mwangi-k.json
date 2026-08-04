@@ -6,26 +6,28 @@
                 },
     "experience":  [
                        {
-                           "period":  "2025 - Present",
-                           "organization":  "State Department for Housing and Urban Development (SDHUD)",
-                           "role":  "Strategic Program Support Officer",
-                           "responsibilities":  [
-                                                    "Drives the adoption and use of Agentic AI for workflow modernization across national policy and programs.",
-                                                    "Supports modernization of MERL workflows enabling real-time insightful reports and media for varied audiences."
-                                                ],
-                           "projects":  [
-                                            "AI-driven program project cards reducing data, media compilation and reporting timelines.",
-                                            "AI-driven dashboards for housing demand and supply chain monitoring.",
-                                            "AI-driven construction Project Information Management Systems (PIMS) for Android mobile and web, scaled to three counties."
-                                        ],
-                           "technologies":  [
-                                                "Agentic AI",
-                                                "FastAPI",
-                                                "Android",
-                                                "AWS",
-                                                "GCP",
-                                                "Power BI"
-                                            ]
+                           "period": "2025 - Present",
+    "organization": "State Department for Housing & Urban Development",
+    "role": "Strategic Programme Support",
+    "responsibilities": [
+        "Drive workflow modernization across national housing and urban development programmes, translating fragmented operational processes into structured digital workflows.",
+        "Design and implement standardized project reporting workflows integrating field data, project media and management reporting across multiple programmes and counties.",
+        "Built the Nairobi Metropolitan Region Project Information Management System (NMR PIMS), enabling structured field reporting, project monitoring and management visibility across three counties.",
+        "Develop automated data and reporting workflows and decision-support dashboards for affordable housing demand, supply and programme performance.",
+        "Support adoption, implementation and institutional handover of digital tools with operational teams, strengthening internal capability and reducing dependency on manual reporting processes."
+    ],
+    "projects": [
+        "NMR PIMS",
+        "Affordable Housing Demand & Supply Intelligence"
+    ],
+    "technologies": [
+        "Agentic AI",
+        "FastAPI",
+        "Android",
+        "AWS",
+        "GCP",
+        "Power BI"
+    ]
                        },
                        {
                            "period":  "2024",

@@ -7,6 +7,7 @@
     <title>Kennedy Mwangi | CV</title>
 
     <style>
+
         * {
             box-sizing: border-box;
         }
@@ -18,7 +19,9 @@
             color: #1f2937;
         }
 
-        /* ONE CONTINUOUS CV PAGE */
+        /* =====================================
+           ONE CONTINUOUS CV PAGE
+        ===================================== */
 
         .cv-page {
             max-width: 1000px;
@@ -28,7 +31,9 @@
             box-shadow: 0 3px 15px rgba(0,0,0,0.10);
         }
 
-        /* HEADER */
+        /* =====================================
+           HEADER
+        ===================================== */
 
         .cv-header {
             background: #111827;
@@ -47,13 +52,17 @@
             color: #d1d5db;
         }
 
-        /* CONTENT */
+        /* =====================================
+           CONTENT
+        ===================================== */
 
         .cv-content {
             padding: 35px 55px 60px;
         }
 
-        /* SECTION */
+        /* =====================================
+           SECTION
+        ===================================== */
 
         .cv-section {
             padding: 25px 0;
@@ -91,7 +100,9 @@
             line-height: 1.65;
         }
 
-        /* EXPERIENCE */
+        /* =====================================
+           EXPERIENCE
+        ===================================== */
 
         .item {
             margin-bottom: 25px;
@@ -112,7 +123,59 @@
             margin-top: 3px;
         }
 
-        /* TAGS */
+        /* =====================================
+           SELECTED BUILDS
+        ===================================== */
+
+        .selected-builds {
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .selected-builds > strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            color: #6b7280;
+        }
+
+        .build-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 11px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .build-link:last-child {
+            border-bottom: none;
+        }
+
+        .build-link span {
+            font-size: 15px;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .build-link a {
+            flex-shrink: 0;
+            font-size: 13px;
+            font-weight: 600;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .build-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* =====================================
+           TAGS
+        ===================================== */
 
         .tags {
             display: flex;
@@ -129,9 +192,9 @@
             font-size: 12px;
         }
 
-        /* STATUS */
-
-        /* STATUS */
+        /* =====================================
+           STATUS
+        ===================================== */
 
         #status {
             display: none;
@@ -147,6 +210,10 @@
 
             z-index: 1000;
         }
+
+        /* =====================================
+           MOBILE
+        ===================================== */
 
         @media(max-width:700px) {
 
@@ -164,7 +231,14 @@
                 align-items: flex-start;
                 gap: 10px;
             }
+
+            .build-link {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
         }
+
     </style>
 </head>
 
@@ -172,6 +246,7 @@
 <body>
 
 <div id="status"></div>
+
 
 <div class="cv-page">
 
@@ -196,8 +271,19 @@
 
 <script>
 
+/* =====================================
+   DATA SOURCE
+
+   Local testing:
+   ./mwangi-k.json
+
+   When we are ready to reconnect the
+   deployed backend, this can be changed.
+===================================== */
+
 const API =
-    "https://mwangi-k.onrender.com/cv";
+    "./mwangi-k.json";
+
 
 let mwangi_k = {};
 
@@ -213,8 +299,11 @@ async function getMwangiK() {
         const response =
             await fetch(API);
 
-        if (!response.ok)
-            throw new Error();
+        if (!response.ok) {
+            throw new Error(
+                `HTTP ${response.status}`
+            );
+        }
 
         mwangi_k =
             await response.json();
@@ -223,10 +312,15 @@ async function getMwangiK() {
 
     }
 
-    catch {
+    catch (error) {
+
+        console.error(
+            "CV loading error:",
+            error
+        );
 
         showStatus(
-            "Unable to connect to API",
+            "Unable to load CV data",
             true
         );
     }
@@ -256,6 +350,7 @@ function renderCV() {
             "cv-content"
         );
 
+
     container.innerHTML = "";
 
 
@@ -273,6 +368,7 @@ function renderCV() {
             ) {
                 return;
             }
+
 
             createSection(
                 container,
@@ -297,21 +393,26 @@ function createSection(
     const section =
         document.createElement("section");
 
+
     section.className =
         "cv-section";
 
 
     section.innerHTML = `
+
         <div class="section-header">
+
             <h2>
                 ${formatHeading(key)}
             </h2>
+
         </div>
 
         <div
             id="${key}-display"
             class="display">
         </div>
+
     `;
 
 
@@ -340,11 +441,14 @@ function renderSectionValue(
         );
 
 
-    if (!display)
+    if (!display) {
         return;
+    }
 
 
-    /* PROFILE */
+    /* =================================
+       PROFILE
+    ================================= */
 
     if (key === "profile") {
 
@@ -355,7 +459,9 @@ function renderSectionValue(
     }
 
 
-    /* EXPERIENCE */
+    /* =================================
+       EXPERIENCE
+    ================================= */
 
     if (key === "experience") {
 
@@ -381,18 +487,70 @@ function renderSectionValue(
                     )}
 
                     ${
+                        item.organization &&
+                        item.organization.includes(
+                            "State Department"
+                        ) &&
                         item.projects
-                        ? `
-                        <strong>
-                            Key Projects
-                        </strong>
 
-                        ${createList(
-                            item.projects
-                        )}
+                        ? `
+
+                            <div class="selected-builds">
+
+                                <strong>
+                                    SELECTED BUILDS
+                                </strong>
+
+                                <div class="build-link">
+
+                                    <span>
+                                        NMR PIMS
+                                    </span>
+
+                                    <a
+                                        href="/projects/pims"
+                                        aria-label="View NMR PIMS case study">
+                                        View Case Study &nearr;
+                                    </a>
+
+                                </div>
+
+
+                                <div class="build-link">
+
+                                    <span>
+                                        Affordable Housing Demand &amp; Supply Intelligence
+                                    </span>
+
+                                    <a
+                                        href="/projects/housing-intelligence"
+                                        aria-label="View Affordable Housing Demand and Supply Intelligence case study">
+                                        View Case Study &nearr;
+                                    </a>
+
+                                </div>
+
+                            </div>
+
                         `
-                        : ""
+
+                        : item.projects
+
+                            ? `
+
+                                <strong>
+                                    Key Projects
+                                </strong>
+
+                                ${createList(
+                                    item.projects
+                                )}
+
+                            `
+
+                            : ""
                     }
+
 
                     ${createTags(
                         item.technologies
@@ -402,11 +560,14 @@ function renderSectionValue(
 
             `).join("");
 
+
         return;
     }
 
 
-    /* PROJECTS */
+    /* =================================
+       PROJECTS
+    ================================= */
 
     if (key === "projects") {
 
@@ -431,11 +592,14 @@ function renderSectionValue(
 
             `).join("");
 
+
         return;
     }
 
 
-    /* EDUCATION */
+    /* =================================
+       EDUCATION
+    ================================= */
 
     if (key === "education") {
 
@@ -460,11 +624,14 @@ function renderSectionValue(
 
             `).join("");
 
+
         return;
     }
 
 
-    /* CERTIFICATIONS */
+    /* =================================
+       CERTIFICATIONS
+    ================================= */
 
     if (key === "certifications") {
 
@@ -489,11 +656,14 @@ function renderSectionValue(
 
             `).join("");
 
+
         return;
     }
 
 
-    /* SKILLS */
+    /* =================================
+       SKILLS
+    ================================= */
 
     if (key === "skills") {
 
@@ -507,23 +677,29 @@ function renderSectionValue(
                             ${formatHeading(group)}
                         </h3>
 
-                        ${createTags(skills)}
+                        ${createTags(
+                            skills
+                        )}
 
                     </div>
 
                 `).join("");
 
+
         return;
     }
 
 
-    /* EVERYTHING ELSE */
+    /* =================================
+       EVERYTHING ELSE
+    ================================= */
 
     display.innerHTML = `
 
         <pre>
 ${JSON.stringify(value, null, 2)}
         </pre>
+
     `;
 }
 
@@ -534,8 +710,13 @@ ${JSON.stringify(value, null, 2)}
 
 function createList(items) {
 
-    if (!items)
+    if (
+        !items ||
+        !Array.isArray(items) ||
+        items.length === 0
+    ) {
         return "";
+    }
 
 
     return `
@@ -548,6 +729,7 @@ function createList(items) {
             ).join("")}
 
         </ul>
+
     `;
 }
 
@@ -558,8 +740,13 @@ function createList(items) {
 
 function createTags(items) {
 
-    if (!items)
+    if (
+        !items ||
+        !Array.isArray(items) ||
+        items.length === 0
+    ) {
         return "";
+    }
 
 
     return `
@@ -574,6 +761,7 @@ function createTags(items) {
             ).join("")}
 
         </div>
+
     `;
 }
 
@@ -586,7 +774,10 @@ function formatHeading(text) {
 
     return text
 
-        .replaceAll("_", " ")
+        .replaceAll(
+            "_",
+            " "
+        )
 
         .replace(
             /\b\w/g,
@@ -617,8 +808,14 @@ function showStatus(
 
     status.style.background =
         error
-        ? "#fee2e2"
-        : "#dcfce7";
+            ? "#fee2e2"
+            : "#dcfce7";
+
+
+    status.style.borderColor =
+        error
+            ? "#fecaca"
+            : "#86efac";
 
 
     status.style.display =
