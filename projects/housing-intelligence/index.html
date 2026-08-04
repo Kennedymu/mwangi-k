@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Affordable Housing Demand & Supply Intelligence | Kennedy Mwangi</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #f3f4f6;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #1f2937;
+            line-height: 1.65;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        /* NAVIGATION */
+
+        .topbar {
+            background: #111827;
+            color: white;
+            padding: 18px 30px;
+        }
+
+        .topbar-inner {
+            max-width: 1050px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .brand {
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            color: white;
+        }
+
+        /* PAGE */
+
+        .page {
+            max-width: 1050px;
+            margin: 30px auto;
+            background: white;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        /* HERO */
+
+        .hero {
+            background: #111827;
+            color: white;
+            padding: 65px 65px 60px;
+        }
+
+        .eyebrow {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #93c5fd;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            margin: 0;
+            max-width: 850px;
+            font-size: 42px;
+            line-height: 1.12;
+        }
+
+        .hero-description {
+            max-width: 800px;
+            margin: 20px 0 0;
+            color: #d1d5db;
+            font-size: 19px;
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .meta-item {
+            border: 1px solid #374151;
+            border-radius: 20px;
+            padding: 7px 12px;
+            font-size: 13px;
+            color: #e5e7eb;
+        }
+
+        /* CONTENT */
+
+        .content {
+            padding: 20px 65px 65px;
+        }
+
+        section {
+            padding: 42px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        .section-label {
+            margin-bottom: 10px;
+            color: #2563eb;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            margin: 0 0 18px;
+            color: #111827;
+            font-size: 27px;
+        }
+
+        h3 {
+            margin: 0 0 8px;
+            color: #111827;
+            font-size: 17px;
+        }
+
+        p {
+            margin: 0 0 16px;
+        }
+
+        .lead {
+            max-width: 850px;
+            font-size: 18px;
+            color: #374151;
+        }
+
+        /* CARDS */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .card {
+            padding: 23px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+        }
+
+        .card p {
+            margin: 0;
+            color: #4b5563;
+            font-size: 15px;
+        }
+
+        /* ANALYTICS FLOW */
+
+        .workflow {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-top: 28px;
+        }
+
+        .workflow-step {
+            padding: 20px 16px;
+            background: #f9fafb;
+            border-top: 3px solid #2563eb;
+        }
+
+        .workflow-number {
+            display: block;
+            margin-bottom: 8px;
+            color: #2563eb;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .workflow-step strong {
+            display: block;
+            color: #111827;
+            font-size: 14px;
+        }
+
+        /* ROLE */
+
+        .role-box {
+            margin-top: 25px;
+            padding: 28px;
+            background: #111827;
+            color: white;
+            border-radius: 8px;
+        }
+
+        .role-box h3 {
+            color: white;
+            font-size: 20px;
+        }
+
+        .role-box p {
+            margin-bottom: 0;
+            color: #d1d5db;
+        }
+
+        /* LIST */
+
+        ul {
+            margin: 18px 0 0;
+            padding-left: 22px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* TAGS */
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            padding: 7px 12px;
+            background: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* CTA */
+
+        .cta {
+            padding: 35px;
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+        }
+
+        .cta h2 {
+            font-size: 23px;
+        }
+
+        .cta p {
+            max-width: 760px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 10px 16px;
+            background: #111827;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 25px 65px;
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+
+        @media(max-width: 750px) {
+
+            .page {
+                margin: 0;
+            }
+
+            .hero,
+            .content,
+            footer {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .grid,
+            .workflow {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<nav class="topbar">
+
+    <div class="topbar-inner">
+
+        <a class="brand" href="/">
+            Kennedy Mwangi
+        </a>
+
+        <a class="back-link" href="/">
+            &larr; Back to CV
+        </a>
+
+    </div>
+
+</nav>
+
+
+<main class="page">
+
+    <!-- HERO -->
+
+    <header class="hero">
+
+        <div class="eyebrow">
+            Selected Build / Data & Decision Intelligence
+        </div>
+
+        <h1>
+            Affordable Housing Demand &amp; Supply Intelligence
+        </h1>
+
+        <p class="hero-description">
+            A data analytics and decision-support platform designed to
+            map housing demand, track housing supply, transform programme
+            data into management dashboards and support evidence-informed
+            planning decisions.
+        </p>
+
+        <div class="meta">
+
+            <span class="meta-item">
+                Data Analytics Platform
+            </span>
+
+            <span class="meta-item">
+                Housing Demand
+            </span>
+
+            <span class="meta-item">
+                Housing Supply
+            </span>
+
+            <span class="meta-item">
+                Decision Support
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <div class="content">
+
+        <!-- CONTEXT -->
+
+        <section>
+
+            <div class="section-label">
+                01 / Context
+            </div>
+
+            <h2>
+                Turning housing data into planning intelligence
+            </h2>
+
+            <p class="lead">
+                Affordable housing programmes generate information about
+                demand, planned and available supply, projects and programme
+                delivery. The value of that information depends on whether
+                decision-makers can organize, analyze and interpret it.
+            </p>
+
+            <p>
+                Affordable Housing Demand &amp; Supply Intelligence was
+                developed to create a structured analytics layer between
+                programme data and management decision-making.
+            </p>
+
+        </section>
+
+
+        <!-- DECISION PROBLEM -->
+
+        <section>
+
+            <div class="section-label">
+                02 / Decision Problem
+            </div>
+
+            <h2>
+                Connecting demand, supply and management visibility
+            </h2>
+
+            <p>
+                The platform addresses the need to move beyond isolated
+                datasets and reporting outputs toward a clearer view of
+                housing demand and supply for programme planning.
+            </p>
+
+            <div class="grid">
+
+                <div class="card">
+
+                    <h3>
+                        Understand Demand
+                    </h3>
+
+                    <p>
+                        Organize housing demand information so that
+                        patterns can be interpreted and presented
+                        to programme decision-makers.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Track Supply
+                    </h3>
+
+                    <p>
+                        Structure housing supply information to improve
+                        visibility of programme delivery and available
+                        or planned supply.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Connect the Two
+                    </h3>
+
+                    <p>
+                        Bring demand and supply perspectives into a
+                        common analytical environment rather than
+                        treating them as disconnected reporting streams.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Management Visibility
+                    </h3>
+
+                    <p>
+                        Translate underlying information into dashboards
+                        and management views that support planning.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SOLUTION -->
+
+        <section>
+
+            <div class="section-label">
+                03 / Solution
+            </div>
+
+            <h2>
+                From programme data to decision support
+            </h2>
+
+            <p class="lead">
+                The solution structures the analytics workflow from
+                underlying programme information through analysis and
+                visualization to management decision support.
+            </p>
+
+            <div class="workflow">
+
+                <div class="workflow-step">
+
+                    <span class="workflow-number">
+                        STEP 01
+                    </span>
+
+                    <strong>
+                        Data
+                    </strong>
+
+                </div>
+
+
+                <div class="workflow-step">
+
+                    <span class="workflow-number">
+                        STEP 02
+                    </span>
+
+                    <strong>
+                        Structure
+                    </strong>
+
+                </div>
+
+
+                <div class="workflow-step">
+
+                    <span class="workflow-number">
+                        STEP 03
+                    </span>
+
+                    <strong>
+                        Analyze
+                    </strong>
+
+                </div>
+
+
+                <div class="workflow-step">
+
+                    <span class="workflow-number">
+                        STEP 04
+                    </span>
+
+                    <strong>
+                        Visualize
+                    </strong>
+
+                </div>
+
+
+                <div class="workflow-step">
+
+                    <span class="workflow-number">
+                        STEP 05
+                    </span>
+
+                    <strong>
+                        Decision Support
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ROLE -->
+
+        <section>
+
+            <div class="section-label">
+                04 / My Role
+            </div>
+
+            <h2>
+                Full-system build
+            </h2>
+
+            <div class="role-box">
+
+                <h3>
+                    Built the full system
+                </h3>
+
+                <p>
+                    My role covered the end-to-end development of the
+                    analytics and decision-support platform, translating
+                    housing programme information into structured
+                    analytical workflows and management-facing outputs.
+                </p>
+
+            </div>
+
+            <ul>
+
+                <li>
+                    Translated housing demand and supply requirements
+                    into a structured analytics workflow.
+                </li>
+
+                <li>
+                    Designed the information structure required to
+                    organize programme data for analysis.
+                </li>
+
+                <li>
+                    Developed the analytical logic used to interpret
+                    demand and supply information.
+                </li>
+
+                <li>
+                    Built management dashboards to make programme
+                    information easier to interpret.
+                </li>
+
+                <li>
+                    Connected analytical outputs with planning and
+                    management decision-support needs.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- CORE CAPABILITIES -->
+
+        <section>
+
+            <div class="section-label">
+                05 / Core Capabilities
+            </div>
+
+            <h2>
+                What the platform enables
+            </h2>
+
+            <div class="grid">
+
+                <div class="card">
+
+                    <h3>
+                        Housing Demand Mapping
+                    </h3>
+
+                    <p>
+                        Structures and analyzes housing demand information
+                        to provide clearer visibility of demand patterns.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Housing Supply Tracking
+                    </h3>
+
+                    <p>
+                        Organizes supply-side programme information to
+                        improve visibility of housing delivery.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Management Dashboards
+                    </h3>
+
+                    <p>
+                        Converts structured information into visual
+                        management views for faster interpretation.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Planning Decision Support
+                    </h3>
+
+                    <p>
+                        Connects analysis with the information needed
+                        to support programme planning decisions.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ANALYTICS APPROACH -->
+
+        <section>
+
+            <div class="section-label">
+                06 / Analytics Approach
+            </div>
+
+            <h2>
+                Analytics designed around the decision
+            </h2>
+
+            <p class="lead">
+                The platform is designed as a data analytics and
+                decision-support system. The objective is not simply
+                to create dashboards, but to structure information
+                around the questions programme teams need to answer.
+            </p>
+
+            <p>
+                This means working backward from management and planning
+                requirements: identifying the information required,
+                structuring the data, applying the appropriate analysis
+                and then presenting the result in a form that supports
+                interpretation and action.
+            </p>
+
+            <div class="tags">
+
+                <span class="tag">
+                    Data Analytics
+                </span>
+
+                <span class="tag">
+                    Data Structuring
+                </span>
+
+                <span class="tag">
+                    Demand Intelligence
+                </span>
+
+                <span class="tag">
+                    Supply Intelligence
+                </span>
+
+                <span class="tag">
+                    Management Dashboards
+                </span>
+
+                <span class="tag">
+                    Decision Support
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- CAPABILITY -->
+
+        <section>
+
+            <div class="section-label">
+                07 / Capability Demonstrated
+            </div>
+
+            <h2>
+                What this build demonstrates
+            </h2>
+
+            <ul>
+
+                <li>
+                    Translating a programme decision problem into a
+                    structured data and analytics workflow.
+                </li>
+
+                <li>
+                    Connecting multiple dimensions of programme
+                    information rather than reporting them in isolation.
+                </li>
+
+                <li>
+                    Building functional management dashboards around
+                    operational and planning needs.
+                </li>
+
+                <li>
+                    Designing analytical outputs for decision support
+                    rather than visualization alone.
+                </li>
+
+                <li>
+                    Moving from raw programme information to structured
+                    management intelligence.
+                </li>
+
+                <li>
+                    Selecting analytics and deterministic data systems
+                    where they appropriately solve the decision problem.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- TECHNICAL EVIDENCE -->
+
+        <section>
+
+            <div class="cta">
+
+                <div class="section-label">
+                    Technical Evidence
+                </div>
+
+                <h2>
+                    Technical documentation
+                </h2>
+
+                <p>
+                    Data architecture, analytical methodology,
+                    implementation notes and technical documentation
+                    can be linked here as supporting evidence while
+                    keeping this case study focused on the programme
+                    problem, analytical solution and decision value.
+                </p>
+
+                <!--
+                    Replace # with the technical documentation
+                    or GitHub repository when ready.
+                -->
+
+                <a class="button" href="#">
+                    Technical Documentation &rarr;
+                </a>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <footer>
+        Kennedy Mwangi &nbsp;|&nbsp; Selected Build &nbsp;|&nbsp;
+        Affordable Housing Demand &amp; Supply Intelligence
+    </footer>
+
+</main>
+
+</body>
+</html>

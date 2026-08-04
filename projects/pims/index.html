@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NMR PIMS | Kennedy Mwangi</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #f3f4f6;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #1f2937;
+            line-height: 1.65;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        /* NAVIGATION */
+
+        .topbar {
+            background: #111827;
+            color: white;
+            padding: 18px 30px;
+        }
+
+        .topbar-inner {
+            max-width: 1050px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .brand {
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            color: white;
+        }
+
+        /* PAGE */
+
+        .page {
+            max-width: 1050px;
+            margin: 30px auto;
+            background: white;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        /* HERO */
+
+        .hero {
+            background: #111827;
+            color: white;
+            padding: 65px 65px 60px;
+        }
+
+        .eyebrow {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #93c5fd;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            margin: 0;
+            max-width: 800px;
+            font-size: 42px;
+            line-height: 1.12;
+        }
+
+        .hero-description {
+            max-width: 780px;
+            margin: 20px 0 0;
+            color: #d1d5db;
+            font-size: 19px;
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .meta-item {
+            border: 1px solid #374151;
+            border-radius: 20px;
+            padding: 7px 12px;
+            font-size: 13px;
+            color: #e5e7eb;
+        }
+
+        /* CONTENT */
+
+        .content {
+            padding: 20px 65px 65px;
+        }
+
+        section {
+            padding: 42px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        .section-label {
+            margin-bottom: 10px;
+            color: #2563eb;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            margin: 0 0 18px;
+            color: #111827;
+            font-size: 27px;
+        }
+
+        h3 {
+            margin: 0 0 8px;
+            color: #111827;
+            font-size: 17px;
+        }
+
+        p {
+            margin: 0 0 16px;
+        }
+
+        .lead {
+            max-width: 850px;
+            font-size: 18px;
+            color: #374151;
+        }
+
+        /* OUTCOME GRID */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .card {
+            padding: 23px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+        }
+
+        .card p {
+            margin: 0;
+            color: #4b5563;
+            font-size: 15px;
+        }
+
+        /* WORKFLOW */
+
+        .workflow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .workflow-step {
+            position: relative;
+            padding: 20px;
+            background: #f9fafb;
+            border-top: 3px solid #2563eb;
+        }
+
+        .workflow-number {
+            display: block;
+            margin-bottom: 8px;
+            color: #2563eb;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .workflow-step strong {
+            display: block;
+            color: #111827;
+            font-size: 14px;
+        }
+
+        /* ROLE */
+
+        .role-box {
+            margin-top: 25px;
+            padding: 28px;
+            background: #111827;
+            color: white;
+            border-radius: 8px;
+        }
+
+        .role-box h3 {
+            color: white;
+            font-size: 20px;
+        }
+
+        .role-box p {
+            margin-bottom: 0;
+            color: #d1d5db;
+        }
+
+        /* LIST */
+
+        ul {
+            margin: 18px 0 0;
+            padding-left: 22px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* TECHNOLOGY */
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            padding: 7px 12px;
+            background: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* CTA */
+
+        .cta {
+            padding: 35px;
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+        }
+
+        .cta h2 {
+            font-size: 23px;
+        }
+
+        .cta p {
+            max-width: 760px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 10px 16px;
+            background: #111827;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 25px 65px;
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+
+        @media(max-width: 750px) {
+
+            .page {
+                margin: 0;
+            }
+
+            .hero,
+            .content,
+            footer {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .grid,
+            .workflow {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar-inner {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="topbar">
+    <div class="topbar-inner">
+
+        <a class="brand" href="/">
+            Kennedy Mwangi
+        </a>
+
+        <a class="back-link" href="/">
+            &larr; Back to CV
+        </a>
+
+    </div>
+</nav>
+
+
+<main class="page">
+
+    <!-- HERO -->
+
+    <header class="hero">
+
+        <div class="eyebrow">
+            Selected Build / Digital Programme Infrastructure
+        </div>
+
+        <h1>
+            Nairobi Metropolitan Region Project Information Management System
+        </h1>
+
+        <p class="hero-description">
+            A web-based project information management system designed
+            to standardize field reporting, integrate project data and
+            media, automate management reporting and enable monitoring
+            across multiple counties.
+        </p>
+
+        <div class="meta">
+
+            <span class="meta-item">
+                NMR PIMS
+            </span>
+
+            <span class="meta-item">
+                Web Application
+            </span>
+
+            <span class="meta-item">
+                Multi-County
+            </span>
+
+            <span class="meta-item">
+                Programme Monitoring
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <div class="content">
+
+        <!-- CONTEXT -->
+
+        <section>
+
+            <div class="section-label">
+                01 / Context
+            </div>
+
+            <h2>
+                Turning fragmented project reporting into a structured workflow
+            </h2>
+
+            <p class="lead">
+                Infrastructure programme monitoring depends on timely,
+                consistent information from projects in the field.
+                NMR PIMS was built to create a more structured way of
+                collecting, organizing and presenting project information
+                for operational and management use.
+            </p>
+
+            <p>
+                Rather than treating reporting as a collection of separate
+                documents, photographs and manual updates, the system
+                brings project information into a common digital workflow.
+            </p>
+
+        </section>
+
+
+        <!-- PROBLEM -->
+
+        <section>
+
+            <div class="section-label">
+                02 / Workflow Problem
+            </div>
+
+            <h2>
+                The operational challenge
+            </h2>
+
+            <p>
+                The project addressed a reporting environment in which
+                field information, project media and management reporting
+                needed to be brought together more consistently across
+                programmes and locations.
+            </p>
+
+            <div class="grid">
+
+                <div class="card">
+                    <h3>Field Reporting</h3>
+                    <p>
+                        Create a standardized structure for capturing
+                        project information from operational teams.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Project Media</h3>
+                    <p>
+                        Bring project photographs and related information
+                        into the same reporting workflow.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Management Reporting</h3>
+                    <p>
+                        Reduce the effort required to reorganize field
+                        information into useful management views.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Multi-County Visibility</h3>
+                    <p>
+                        Provide a common structure for monitoring projects
+                        across three counties in the Nairobi Metropolitan Region.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SOLUTION -->
+
+        <section>
+
+            <div class="section-label">
+                03 / Solution
+            </div>
+
+            <h2>
+                Reconstructing the reporting workflow
+            </h2>
+
+            <p class="lead">
+                The solution was designed around the reporting workflow
+                itself: capture information consistently, organize it,
+                connect project media and data, and turn that information
+                into management-ready reporting.
+            </p>
+
+            <div class="workflow">
+
+                <div class="workflow-step">
+                    <span class="workflow-number">STEP 01</span>
+                    <strong>Capture field information</strong>
+                </div>
+
+                <div class="workflow-step">
+                    <span class="workflow-number">STEP 02</span>
+                    <strong>Structure project data</strong>
+                </div>
+
+                <div class="workflow-step">
+                    <span class="workflow-number">STEP 03</span>
+                    <strong>Integrate project media</strong>
+                </div>
+
+                <div class="workflow-step">
+                    <span class="workflow-number">STEP 04</span>
+                    <strong>Generate management views</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ROLE -->
+
+        <section>
+
+            <div class="section-label">
+                04 / My Role
+            </div>
+
+            <h2>
+                Full-system build
+            </h2>
+
+            <div class="role-box">
+
+                <h3>
+                    Built the full system
+                </h3>
+
+                <p>
+                    My role covered the end-to-end development of the
+                    PIMS as a functional web application, translating
+                    programme reporting requirements into a working
+                    digital system.
+                </p>
+
+            </div>
+
+            <ul>
+                <li>
+                    Translated the operational reporting process into a
+                    structured digital workflow.
+                </li>
+
+                <li>
+                    Designed the information structure required to organize
+                    project reporting consistently.
+                </li>
+
+                <li>
+                    Built the web application used to bring project data
+                    and media into a common system.
+                </li>
+
+                <li>
+                    Developed management-facing reporting views from
+                    structured project information.
+                </li>
+
+                <li>
+                    Extended the reporting model to support monitoring
+                    across three counties.
+                </li>
+            </ul>
+
+        </section>
+
+
+        <!-- OUTCOMES -->
+
+        <section>
+
+            <div class="section-label">
+                05 / What It Enabled
+            </div>
+
+            <h2>
+                From reporting activity to reusable programme infrastructure
+            </h2>
+
+            <div class="grid">
+
+                <div class="card">
+                    <h3>Standardized Field Reporting</h3>
+                    <p>
+                        Established a common structure for capturing
+                        project information.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Automated Management Reporting</h3>
+                    <p>
+                        Structured information could be transformed into
+                        management-ready reporting with less manual
+                        reorganization.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Integrated Photos &amp; Data</h3>
+                    <p>
+                        Project media and structured project information
+                        were incorporated into the same reporting process.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Multi-County Monitoring</h3>
+                    <p>
+                        The same reporting structure supported programme
+                        visibility across three counties.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TECHNOLOGY -->
+
+        <section>
+
+            <div class="section-label">
+                06 / Technology Approach
+            </div>
+
+            <h2>
+                Technology selected around the workflow
+            </h2>
+
+            <p class="lead">
+                The PIMS is presented as a functional web application,
+                not as an AI system for the sake of using AI. The core
+                requirement was dependable workflow standardization,
+                structured information management and reporting.
+            </p>
+
+            <p>
+                This distinction matters: the technology choice follows
+                the operational problem. Deterministic application
+                workflows are appropriate where users need consistent
+                data structures, repeatable processes and predictable
+                management outputs.
+            </p>
+
+            <div class="tags">
+
+                <span class="tag">
+                    Web Application
+                </span>
+
+                <span class="tag">
+                    Workflow Design
+                </span>
+
+                <span class="tag">
+                    Structured Data
+                </span>
+
+                <span class="tag">
+                    Reporting Automation
+                </span>
+
+                <span class="tag">
+                    Project Information Management
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- RELEVANCE -->
+
+        <section>
+
+            <div class="section-label">
+                07 / Capability Demonstrated
+            </div>
+
+            <h2>
+                What this build demonstrates
+            </h2>
+
+            <ul>
+                <li>
+                    Decomposing an operational workflow before selecting
+                    the technology.
+                </li>
+
+                <li>
+                    Reconstructing fragmented reporting into a repeatable
+                    digital process.
+                </li>
+
+                <li>
+                    Building a functional tool rather than stopping at
+                    analysis or recommendations.
+                </li>
+
+                <li>
+                    Creating reusable programme infrastructure that can
+                    support multiple operational contexts.
+                </li>
+
+                <li>
+                    Connecting field-level information with
+                    management-level visibility.
+                </li>
+
+                <li>
+                    Applying technology according to the problem rather
+                    than forcing AI into workflows where deterministic
+                    systems are sufficient.
+                </li>
+            </ul>
+
+        </section>
+
+
+        <!-- DOCUMENTATION -->
+
+        <section>
+
+            <div class="cta">
+
+                <div class="section-label">
+                    Technical Evidence
+                </div>
+
+                <h2>
+                    Technical documentation
+                </h2>
+
+                <p>
+                    Architecture, implementation notes and source-code
+                    documentation can be linked here as supporting
+                    technical evidence while keeping this case study
+                    focused on the operational problem, solution and
+                    programme value.
+                </p>
+
+                <!--
+                Replace # with the GitHub repository URL
+                when the technical repository is ready.
+                -->
+
+                <a class="button" href="#">
+                    Technical Documentation &rarr;
+                </a>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <footer>
+        Kennedy Mwangi &nbsp;|&nbsp; Selected Build &nbsp;|&nbsp; NMR PIMS
+    </footer>
+
+</main>
+
+</body>
+</html>
